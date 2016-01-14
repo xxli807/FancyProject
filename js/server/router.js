@@ -3,23 +3,25 @@
 
 //use for api and html 
 var express = require('express');
-
+var fs=require('fs');
 module.exports = function(){
  	'use strict';
 
  	//use for api
-	var r1 = express.Router();
-	r1.get('/blog', function (req, res, next) {
-  		next();
+	var blgRouter = express.Router();
+	blgRouter.get('/blog', function (req, res) {		 
+ 		 
+    	res.send(fs.readFileSync(__dirname+'../../../htmls/TechBlog.html','utf8'));
 	})
 
-	r1.post('/blog/add', function (req, res) {
+
+	blgRouter.post('/blog/add', function (req, res) {
   		;
 	})
 
-	r1.post('/blog/update', function (req, res) {
+	blgRouter.post('/blog/update', function (req, res) {
   		;
-	}))
+	})
 
 
 	//use for html,template
@@ -28,7 +30,7 @@ module.exports = function(){
   		next();
 	})
 
-	return [r1,r2];
+	return [blgRouter,r2];
 
 	//app.use('/', [r1, r2]);
 

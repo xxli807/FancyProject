@@ -11,7 +11,8 @@ var path = require("path");
 var router = require(__dirname +'/js/server/router')
 //set up the db connecton
 
-
+app.set('views', path.join(__dirname, 'htmls'));  
+app.set('view engine', 'jade');
 //envionment setting
 app.set('port', process.env.PORT || 3000);
 app.use(session({
@@ -23,7 +24,8 @@ app.use(session({
   resave: false,
   cookie:{}
 }))
-  
+   
+
 app.use(router);
 app.use(express.static(__dirname));
 

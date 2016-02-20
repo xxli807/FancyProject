@@ -14,6 +14,40 @@ module.exports = function(){
     	res.send(fs.readFileSync(__dirname+'../../../htmls/TechBlog.html','utf8'));
 	})
 
+	blgRouter.get('/blog/view/:type', function (req, res) {
+  		
+  		//check if the type
+  		var type = req.params.type;
+  		console.log("type: " +type);
+  		if(type.toLowerCase() == "csharp"){
+			res.send(fs.readFileSync(__dirname+'../../../htmls/BlogView.html','utf8'));
+  		}
+		
+		if(type.toLowerCase() == "java"){
+
+  		}
+
+  		if(type.toLowerCase() == "javascript"){
+
+  		}
+
+  		if(type.toLowerCase() == "css"){
+
+  		}
+
+  		if(type.toLowerCase() == "html"){
+
+  		}
+
+  		if(type.toLowerCase() == "automation"){
+
+  		}
+  		 
+  		if(type.toLowerCase() == "tools"){
+
+  		}
+
+	})
 
 	blgRouter.post('/blog/add', function (req, res) {
   		;

@@ -11,7 +11,7 @@ module.exports = function(){
 	var blgRouter = express.Router();
 	blgRouter.get('/blog', function (req, res) {		 
  		 
-    	res.send(fs.readFileSync(__dirname+'../../../htmls/TechBlog.html','utf8'));
+    	res.send(fs.readFileSync(__dirname+'../../../views/TechBlog.html','utf8'));
 	})
 
 	blgRouter.get('/blog/view/:type', function (req, res) {
@@ -20,7 +20,7 @@ module.exports = function(){
   		var type = req.params.type;
   		console.log("type: " +type);
   		if(type.toLowerCase() == "csharp"){
-			res.send(fs.readFileSync(__dirname+'../../../htmls/BlogView.html','utf8'));
+			res.send(fs.readFileSync(__dirname+'../../../views/BlogView.html','utf8'));
   		}
 		
 		if(type.toLowerCase() == "java"){

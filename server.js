@@ -55,15 +55,18 @@ app.get('/', function (req, res) {
 
 // 404 catch-all handler (middleware)
 app.use(function(req, res, next){
-res.status(404);
-res.render('404');
+	// res.type('text/plain');
+	res.status(404).send('Not Found');
+	// res.render('404');
 });
 // 500 error handler (middleware)
 app.use(function(err, req, res, next){
-console.error(err.stack);
-res.status(500);
-res.render('500');
+	console.error(err.stack);
+	// res.type('text/plain');
+	res.status(500).send('Something Broken');
+	// res.render('500');
 });
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

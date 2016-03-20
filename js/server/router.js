@@ -50,7 +50,9 @@ module.exports = function(){
 	})
 
 	blgRouter.post('/blog/add', function (req, res) {
-  		;
+  		
+  		//connect to mongo
+  		var mongoClient =require('mongodb').MongoClient;
 	})
 
 	blgRouter.post('/blog/update', function (req, res) {

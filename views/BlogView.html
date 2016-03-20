@@ -60,7 +60,7 @@
     <div class="container">
     	<div class="row">
     		<div class="col-lg-12 text-left"> 
-    			<button class="btn btn-primary">new blog</button>
+    			<button id='btnNewBlog' class="btn btn-primary">new blog</button>
     			<hr>
     		</div>
     	</div>  
@@ -74,12 +74,11 @@
           			<li class="list-group-item">WPF</li>
           		</ul>
           	</div>
-          	<div class="col-lg-10 hide">
-          		<textarea name="CKEditor" id="editor" rows="10" cols="80">
-                	
-            	</textarea>
+          	<div id="editorContainer"  class="col-lg-10 hide">
+            <textarea name="CKEditor" id="editor" ></textarea>
+            <div><button class="btn btn-primary btnSavePost">Save</button></div>
           </div>
-          
+           
         </div>
     </div>    
 </div>

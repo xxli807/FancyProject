@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = "Views/Shared/_BlogLayout.cshtml";
+}
+ 
+<style>
+    #blogContent {
+        margin-top:100px;
+    }  
+</style>
+
+@section scripts
+{
+    <script src="~/Content/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/Scripts/techBlog.js"></script>    
+}
+
+<section id="blogContent" class="text-center sectionGap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-left">
+                <button id='btnNewBlog' class="btn btn-primary">new blog</button>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 text-left">
+                <ul class="list-group">
+                    <li class="list-group-item">.NET</li>
+                </ul>
+            </div>
+            <div id="editorContainer" class="col-lg-10 hide">
+                <textarea name="CKEditor" id="editor"></textarea>
+                <div><button class="btn btn-primary btnSavePost">Save</button></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+

@@ -28,7 +28,7 @@ namespace ServerAPI.Modules
                 var model = new PostModel()
                 {
                     Posts = posts,
-                    PostNumbers = posts.Count(),
+                    PostNumbers = posts.Count,
                     PostType = name
                 };
                 return View["Posts", model];

@@ -10,15 +10,16 @@ $(function(){
 
 	//show the container
 	$("#btnNewBlog").click(function(){		
-		$("#editorContainer").removeClass('hide');
+	    $("#editorContainer").removeClass('hide');
+	    $("#posts").hide();
 	});
 
 	//save the post
-	$(".btnSavePost").click(function () {
-	    debugger;
+	$(".btnSavePost").click(function () { 
 	    var postData = CKEDITOR.instances.editor.getData();
 	    var postType = $("#editorContainer select").val();
-	    var data = { 'Content': postData, 'Type': postType };
+	    var postSubject = $("#editorContainer input").val();
+	    var data = { 'Content': postData, 'Type': postType, 'Subject': postSubject };
 	    $.ajax({
 	        url: '/blog/addPost',
 	        type: 'POST',

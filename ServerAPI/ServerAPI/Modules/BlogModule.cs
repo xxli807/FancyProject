@@ -24,11 +24,14 @@ namespace ServerAPI.Modules
                 var name = parameters.name;
 
                 //DI to get all the post based on the name and return the value as json
-                var posts = new PostModel()
+                var posts = _postLogic.GetPosts(name);
+                var model = new PostModel()
                 {
-                    Posts = _postLogic.GetPosts(name)
+                    Posts = posts,
+                    PostNumbers = posts.Count(),
+                    PostType = name
                 };
-                return View["Posts", posts];
+                return View["Posts", model];
             };
 
             Post["/blog/addPost"] = parameters =>

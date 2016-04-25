@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-lg-2 text-left">
                 <ul class="list-group">
-                    <li class="list-group-item">.NET</li>
+                    <li class="list-group-item">@Model.PostType (@Model.PostNumbers)</li>
                 </ul>
             </div>
             <div id="editorContainer" class="col-lg-10 hide">
@@ -63,26 +63,27 @@
             </div>
 
             <!--show the list of content-->
-            <div id="posts">
+            <div id="posts" class="col-lg-10">
                 <div id="accordion" role="tablist" aria-multiselectable="true">
                     @foreach (var post in Model.Posts)
                     {
                         <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
+                            <div class="panel-heading" role="tab" id="heading_@post.Id">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#@post.Id" aria-expanded="true" aria-controls="@post.Id">
-                                       @post.Subject
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@post.Id" aria-expanded="false" aria-controls="collapse_@post.Id">
+                                        @post.Subject
                                     </a>
                                 </h4>
                             </div>
-                            <div id="@post.Id" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div id="collapse_@post.Id" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_@post.Id">
                                 @Html.Raw(post.Content)
                             </div>
                         </div>
-                    } 
+                    }
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 

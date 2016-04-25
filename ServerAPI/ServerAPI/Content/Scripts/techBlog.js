@@ -9,14 +9,29 @@ $(function(){
 	initCKEDitor();
 
 	//show the container
-	$("#btnNewBlog").click(function(){
-		
+	$("#btnNewBlog").click(function(){		
 		$("#editorContainer").removeClass('hide');
 	});
 
 	//save the post
-	$("#btnSavePost").click(function(){
-
+	$(".btnSavePost").click(function () {
+	    debugger;
+	    var postData = CKEDITOR.instances.editor.getData();
+	    var postType = $("#editorContainer select").val();
+	    var data = { 'Content': postData, 'Type': postType };
+	    $.ajax({
+	        url: '/blog/addPost',
+	        type: 'POST',
+	        data: JSON.stringify(data),
+	        contentType: 'application/json; charset=utf-8',
+	        dataType: 'json',
+	        success: function (result) {
+	            alert(result);
+	        },
+	        error: function (jqXHR, exception) {
+	            alert(exception);
+	        }
+	    })
 	});
 	
 

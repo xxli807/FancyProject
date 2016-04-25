@@ -1,4 +1,5 @@
-﻿using ServerAPI.Services.Interfaces;
+﻿using ServerAPI.Persistence.Domain;
+using ServerAPI.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,14 @@ namespace ServerAPI.Services.Implementations
 
         }
 
-
+        public void SavePost(Post post)
+        {
+            using(var context = new FancyContext())
+            {
+                context.Posts.Add(new Post() { Type = post.Type, Content = post.Content });
+                context.SaveChanges();
+            }
+        }
 
     }
 }

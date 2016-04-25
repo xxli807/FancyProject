@@ -7,6 +7,13 @@
     #blogContent {
         margin-top:100px;
     }  
+    .postType {
+        text-align: left;
+    }
+        .postType select {
+            margin: 15px 0;
+            width: 15%;
+        }
 </style>
 
 @section scripts
@@ -20,6 +27,7 @@
         <div class="row">
             <div class="col-lg-12 text-left">
                 <button id='btnNewBlog' class="btn btn-primary">new blog</button>
+                <button class="btn btn-primary btnSavePost">Save</button>
                 <hr>
             </div>
         </div>
@@ -30,8 +38,20 @@
                 </ul>
             </div>
             <div id="editorContainer" class="col-lg-10 hide">
-                <textarea name="CKEditor" id="editor"></textarea>
-                <div><button class="btn btn-primary btnSavePost">Save</button></div>
+                <div class="postType">
+                    <select >
+                        <option value="CSharp">C#</option>
+                        <option value="Java">Java</option>
+                        <option value="Javascript">Javascript</option>
+                        <option value="Css">CSS</option>
+                        <option value="Html">HTML</option>
+                        <option value="Automation">Automation</option>
+                        <option value="Tool">Tools</option>
+                    </select>
+                </div>
+                <div>
+                    <textarea name="CKEditor" id="editor"></textarea>
+                </div>
             </div>
 
         </div>

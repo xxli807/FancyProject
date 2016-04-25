@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using Nancy;
 using ServerAPI.Services.Interfaces;
+using ServerAPI.Persistence.Domain;
+using Nancy.ModelBinding;
 
 namespace ServerAPI.Modules
 {
@@ -16,7 +18,6 @@ namespace ServerAPI.Modules
                 return View["Index"];
             };
 
-
             Get["/blog/{name}"] = parameters =>
             {
                 var name = parameters.name;
@@ -25,6 +26,14 @@ namespace ServerAPI.Modules
                 _postLogic.GetPosts(name);
 
                 return View["Posts"];
+            };
+
+            Post["/blog/addPost"] = parameters =>
+            {
+                var post = this.Bind<Post>();
+                _postLogic.SavePost(post);
+                return Response.AsJson(new {Success = true}, HttpStatusCode.OK);
+
             };
 
 

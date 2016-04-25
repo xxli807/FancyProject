@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServerAPI.Persistence.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace ServerAPI.Services.Interfaces
     {
         void GetPosts(string name);
 
-
+        void SavePost(Post post);
 
     }
 }

@@ -9,7 +9,7 @@ namespace ServerAPI.Services.Interfaces
 {
     public interface IPostLogic
     {
-        void GetPosts(string name);
+        List<Post> GetPosts(string name);
 
         void SavePost(Post post);
 

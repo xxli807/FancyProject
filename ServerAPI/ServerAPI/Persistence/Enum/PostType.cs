@@ -7,6 +7,7 @@ namespace ServerAPI.Persistence.Enum
 {
     public enum PostType
     {
+        None,
         CSharp,
         Java,
         Javascript,

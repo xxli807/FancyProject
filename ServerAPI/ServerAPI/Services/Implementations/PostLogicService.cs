@@ -1,4 +1,5 @@
 ﻿using ServerAPI.Persistence.Domain;
+using ServerAPI.Persistence.Enum;
 using ServerAPI.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,18 @@ namespace ServerAPI.Services.Implementations
 {
     public class PostLogicService : IPostLogic
     {
-        public void GetPosts(string name)
+        public List<Post> GetPosts(string name)
         {
-            var ss = name;
+            var posts = new List<Post>();
+            //should always has value instead of none
+            var type = PostType.None;
+            Enum.TryParse<PostType>(name, out type);
+            using (var context = new FancyContext())
+            {
+                posts = context.Posts.Where(d => d.Type == type).ToList();
+            }
+
+            return posts;
 
         }
 
@@ -19,7 +29,7 @@ namespace ServerAPI.Services.Implementations
         {
             using(var context = new FancyContext())
             {
-                context.Posts.Add(new Post() { Type = post.Type, Content = post.Content });
+                context.Posts.Add(new Post() { Type = post.Type, Content = post.Content, Subject = post.Subject });
                 context.SaveChanges();
             }
         }

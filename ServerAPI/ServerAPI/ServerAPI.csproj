@@ -175,7 +175,6 @@
   <ItemGroup>
     <Content Include="Content\color\default.css" />
     <Content Include="Content\css\animate.css" />
-    <Content Include="Content\css\blogView.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\style.css" />

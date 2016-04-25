@@ -1,25 +1,32 @@
-﻿
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<ServerAPI.Models.PostModel>
+
 @{
     Layout = "Views/Shared/_BlogLayout.cshtml";
 }
- 
+
 <style>
     #blogContent {
-        margin-top:100px;
-    }  
+        margin-top: 100px;
+    }
+
     .postType {
         text-align: left;
     }
+
         .postType select {
             margin: 15px 0;
             width: 15%;
+        }
+
+        .postType input {
+            width: 30%;
         }
 </style>
 
 @section scripts
 {
     <script src="~/Content/Scripts/ckeditor/ckeditor.js"></script>
-    <script src="~/Content/Scripts/techBlog.js"></script>    
+    <script src="~/Content/Scripts/techBlog.js"></script>
 }
 
 <section id="blogContent" class="text-center sectionGap">
@@ -39,7 +46,7 @@
             </div>
             <div id="editorContainer" class="col-lg-10 hide">
                 <div class="postType">
-                    <select >
+                    <select>
                         <option value="CSharp">C#</option>
                         <option value="Java">Java</option>
                         <option value="Javascript">Javascript</option>
@@ -48,13 +55,36 @@
                         <option value="Automation">Automation</option>
                         <option value="Tool">Tools</option>
                     </select>
+                    <input type="text" placeholder="Subject" />
                 </div>
                 <div>
                     <textarea name="CKEditor" id="editor"></textarea>
                 </div>
             </div>
 
+            <!--show the list of content-->
+            <div id="posts">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    @foreach (var post in Model.Posts)
+                    {
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#@post.Id" aria-expanded="true" aria-controls="@post.Id">
+                                       @post.Subject
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="@post.Id" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                @Html.Raw(post.Content)
+                            </div>
+                        </div>
+                    } 
+                </div>
+            </div>
         </div>
-    </div>
 </section>
+
+
+
 

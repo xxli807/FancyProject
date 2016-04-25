@@ -41,7 +41,7 @@ $(function(){
 		CKEDITOR.replace('editor',{
 			language:'en',
 			uiColor: '#cfd1cf',
-			height:'600px',
+			height:'700px',
 			extraPlugins: 'widget,filetools,uploadwidget,uploadimage',
 			uploadUrl: '/uploader/upload.php',
 			toolbarCanCollapse:true

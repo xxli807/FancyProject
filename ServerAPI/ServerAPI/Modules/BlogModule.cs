@@ -6,6 +6,7 @@ using Nancy;
 using ServerAPI.Services.Interfaces;
 using ServerAPI.Persistence.Domain;
 using Nancy.ModelBinding;
+using ServerAPI.Models;
 
 namespace ServerAPI.Modules
 {
@@ -23,9 +24,11 @@ namespace ServerAPI.Modules
                 var name = parameters.name;
 
                 //DI to get all the post based on the name and return the value as json
-                _postLogic.GetPosts(name);
-
-                return View["Posts"];
+                var posts = new PostModel()
+                {
+                    Posts = _postLogic.GetPosts(name)
+                };
+                return View["Posts", posts];
             };
 
             Post["/blog/addPost"] = parameters =>
@@ -35,7 +38,6 @@ namespace ServerAPI.Modules
                 return Response.AsJson(new {Success = true}, HttpStatusCode.OK);
 
             };
-
 
         }
     }

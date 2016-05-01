@@ -16,6 +16,8 @@ namespace ServerAPI.Persistence.Domain
         }
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<FileFolder> FileFolders { get; set; }
+
 
         //map the name convention
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

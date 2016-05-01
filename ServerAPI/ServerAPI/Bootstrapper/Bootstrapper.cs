@@ -18,6 +18,7 @@ namespace ServerAPI.Bootstrapper
             // No registrations should be performed in here, however you may
             // resolve things that are needed during application startup.
             container.Bind<IPostLogic>().To<PostLogicService>();
+            container.Bind<IPhotoLogic>().To<PhotoLogicService>();
 
             Nancy.Json.JsonSettings.MaxJsonLength = int.MaxValue;
         }

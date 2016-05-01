@@ -177,6 +177,7 @@
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\ekko-lightbox.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\techbolg.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
@@ -224,6 +225,7 @@
     <Content Include="Content\Scripts\bootstrap.js" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
     <Content Include="Content\Scripts\custom.js" />
+    <Content Include="Content\Scripts\ekko-lightbox.min.js" />
     <Content Include="Content\Scripts\Index.js" />
     <Content Include="Content\Scripts\jquery-1.10.2.js" />
     <Content Include="Content\Scripts\jquery.easing.min.js" />
@@ -239,10 +241,13 @@
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Modules\BlogModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
+    <Compile Include="Persistence\Domain\FileFolder.cs" />
     <Compile Include="Persistence\Domain\Post.cs" />
     <Compile Include="Persistence\Enum\PostType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Implementations\PhotoLogicService.cs" />
     <Compile Include="Services\Implementations\PostLogicService.cs" />
+    <Compile Include="Services\Interfaces\IPhotoLogic.cs" />
     <Compile Include="Services\Interfaces\IPostLogic.cs" />
   </ItemGroup>
   <ItemGroup>

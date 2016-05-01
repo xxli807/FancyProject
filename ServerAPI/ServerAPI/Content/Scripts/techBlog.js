@@ -9,13 +9,15 @@ $(function(){
 	initCKEDitor();
 
 	//show the container
-	$("#btnNewBlog").click(function(){		
+	$("#btnNewBlog").click(function () {
 	    $("#editorContainer").removeClass('hide');
 	    $("#posts").hide();
+	    $(".btnSavePost").removeAttr("disabled");
 	});
 
 	//save the post
 	$(".btnSavePost").click(function () { 
+	    var self = this;
 	    var postData = CKEDITOR.instances.editor.getData();
 	    var postType = $("#editorContainer select").val();
 	    var postSubject = $("#editorContainer input").val();
@@ -27,10 +29,11 @@ $(function(){
 	        contentType: 'application/json; charset=utf-8',
 	        dataType: 'json',
 	        success: function (result) {
+	            self.attr('disabled', 'disabled'); //avoid sec save
 	            alert(result);
 	        },
 	        error: function (jqXHR, exception) {
-	            alert(exception);
+	            alert('Oops! ' + exception);
 	        }
 	    })
 	});

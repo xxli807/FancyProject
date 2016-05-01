@@ -1,4 +1,4 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<ServerAPI.Models.PostModel>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<ServerAPI.Models.PostModel> 
 
 @{
     Layout = "Views/Shared/_BlogLayout.cshtml";
@@ -13,10 +13,10 @@
         text-align: left;
     }
 
-        .postType select {
+        /*.postType select {
             margin: 15px 0;
             width: 15%;
-        }
+        }*/
 
         .postType input {
             width: 30%;
@@ -46,7 +46,7 @@
             </div>
             <div id="editorContainer" class="col-lg-10 hide">
                 <div class="postType">
-                    <select>
+                    @*<select>
                         <option value="CSharp">C#</option>
                         <option value="Java">Java</option>
                         <option value="Javascript">Javascript</option>
@@ -54,9 +54,11 @@
                         <option value="Html">HTML</option>
                         <option value="Automation">Automation</option>
                         <option value="Tool">Tools</option>
-                    </select>
-                    <input type="text" placeholder="Subject" />
+                    </select>*@
+                    <input type="hidden" value="@Model.PostType" />
+                    <input type="text" placeholder="Subject" />                 
                 </div>
+                <br />
                 <div>
                     <textarea name="CKEditor" id="editor"></textarea>
                 </div>

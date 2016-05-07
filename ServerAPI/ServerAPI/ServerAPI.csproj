@@ -251,6 +251,9 @@
     <Compile Include="Services\Interfaces\IPostLogic.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\img\Australia\" />
+    <Folder Include="Content\img\European\" />
+    <Folder Include="Content\img\Japan\" />
     <Folder Include="Content\Scripts\ckeditor\" />
     <Folder Include="Content\Scripts\controllers\" />
     <Folder Include="Content\Scripts\models\" />

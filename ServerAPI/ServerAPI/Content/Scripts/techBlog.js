@@ -19,8 +19,8 @@ $(function(){
 	$(".btnSavePost").click(function () { 
 	    var self = this;
 	    var postData = CKEDITOR.instances.editor.getData();
-	    var postType = $("#editorContainer select").val();
-	    var postSubject = $("#editorContainer input").val();
+	    var postType = $("#postType").val();
+	    var postSubject = $("#postSubject").val();
 	    var data = { 'Content': postData, 'Type': postType, 'Subject': postSubject };
 	    $.ajax({
 	        url: '/blog/addPost',

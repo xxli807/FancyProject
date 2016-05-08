@@ -1,0 +1,39 @@
+
+
+section h5{
+	padding-top: 10px;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 0px;
+}
+
+section .subtitle{
+	color: #fff;
+}
+
+#JavaC{
+	margin-top: 100px;
+}
+
+
+.sectionGap
+{
+	margin-top:20px;
+}
+
+.langange{ 
+	    background-color: #639AA2;
+}
+
+.langange.boxed-lightBlur{
+	background-color: #639AA2;
+}
+
+#Tool{
+	margin-bottom: 30px;
+}
+
+img.center{
+	display: block;
+    margin: 0 auto;
+}

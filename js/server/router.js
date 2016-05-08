@@ -3,23 +3,61 @@
 
 //use for api and html 
 var express = require('express');
-
+var fs=require('fs');
 module.exports = function(){
  	'use strict';
 
  	//use for api
-	var r1 = express.Router();
-	r1.get('/blog', function (req, res, next) {
-  		next();
+	var blgRouter = express.Router();
+	blgRouter.get('/blog', function (req, res) {		 
+ 		 
+    	res.send(fs.readFileSync(__dirname+'../../../views/TechBlog.html','utf8'));
 	})
 
-	r1.post('/blog/add', function (req, res) {
-  		;
+	blgRouter.get('/blog/view/:type', function (req, res) {
+  		
+  		//check if the type
+  		var type = req.params.type;
+  		console.log("type: " +type);
+  		if(type.toLowerCase() == "csharp"){
+			res.send(fs.readFileSync(__dirname+'../../../views/BlogView.html','utf8'));
+  		}
+		
+		if(type.toLowerCase() == "java"){
+
+  		}
+
+  		if(type.toLowerCase() == "javascript"){
+
+  		}
+
+  		if(type.toLowerCase() == "css"){
+
+  		}
+
+  		if(type.toLowerCase() == "html"){
+
+  		}
+
+  		if(type.toLowerCase() == "automation"){
+
+  		}
+  		 
+  		if(type.toLowerCase() == "tools"){
+
+  		}
+
 	})
 
-	r1.post('/blog/update', function (req, res) {
+	blgRouter.post('/blog/add', function (req, res) {
+  		
+  		//connect to mongo
+  		var mongoClient =require('mongodb').MongoClient;
+	})
+
+	blgRouter.post('/blog/update', function (req, res) {
   		;
-	}))
+	})
 
 
 	//use for html,template
@@ -28,7 +66,7 @@ module.exports = function(){
   		next();
 	})
 
-	return [r1,r2];
+	return [blgRouter,r2];
 
 	//app.use('/', [r1, r2]);
 
